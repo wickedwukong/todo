@@ -1067,6 +1067,10 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+elm-brunch@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/elm-brunch/-/elm-brunch-0.11.1.tgz#c1d53ac68bacb65ae0f03bf3c5a7f323390c5841"
+
 encodeurl@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
