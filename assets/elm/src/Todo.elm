@@ -3,4 +3,4 @@ module Todo exposing (..)
 import Html exposing (text)
 
 main =
-    text "Hello"
+    text "Hello world"
