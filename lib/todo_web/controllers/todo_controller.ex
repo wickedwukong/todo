@@ -1,4 +1,4 @@
-defmodule TodoWeb.PageController do
+defmodule TodoWeb.TodoController do
   use TodoWeb, :controller
 
   def index(conn, _params) do
