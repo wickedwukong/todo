@@ -1,2 +1,3 @@
 <div id="todo-container"
+     data-server-url="<%= server_url() %>">
 </div>
