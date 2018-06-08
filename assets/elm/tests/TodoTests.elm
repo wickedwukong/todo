@@ -4,7 +4,8 @@ import Expect exposing (Expectation)
 import Fuzz exposing (Fuzzer, int, list, string)
 import Test exposing (..)
 import Test.Html.Query as Query
-import Test.Html.Selector exposing (text, tag, class)
+import Test.Html.Selector exposing (text, tag, class, attribute)
+import Html.Attributes as Attr
 
 import Todo exposing(..)
 
@@ -17,12 +18,15 @@ suite =
                 \_ ->
                   let
                     emptyToDoLists = {serverUrl = "a server url"}
+                    all = [ attribute <| Attr.placeholder "Add a task..."
+                          , class "new-task"
+                          , attribute <| Attr.autofocus True]
                   in
                    emptyToDoLists
                      |> Todo.view
                      |> Query.fromHtml
                      |> Query.find [ tag "input"]
-                     |> Query.has [ class "new-task"]
+                     |> Query.has all
 
             -- Expect.equal is designed to be used in pipeline style, like this.
             , test "reverses a known string" <|

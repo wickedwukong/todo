@@ -45,6 +45,7 @@ view : Model -> Html Msg
 view model =
   div [ id "to-do-lists"]
       [ input [ class "new-task"
+              , placeholder "Add a task..."
               , autofocus True
               ]
               []

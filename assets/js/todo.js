@@ -12318,8 +12318,12 @@ var _user$project$Todo$view = function (model) {
 					_0: _elm_lang$html$Html_Attributes$class('new-task'),
 					_1: {
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$autofocus(true),
-						_1: {ctor: '[]'}
+						_0: _elm_lang$html$Html_Attributes$placeholder('Add a task...'),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$autofocus(true),
+							_1: {ctor: '[]'}
+						}
 					}
 				},
 				{ctor: '[]'}),

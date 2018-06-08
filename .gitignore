@@ -3,6 +3,8 @@
 /db
 /deps
 /*.ez
+/assets/elm-stuff
+**/*/*.log
 
 # Generated on crash by the VM
 erl_crash.dump
