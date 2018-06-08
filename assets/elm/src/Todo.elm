@@ -19,9 +19,11 @@ initialModel serverUrl =
 init : Flags -> ( Model, Cmd Msg )
 init flags =
     let
-        model = initialModel flags.serverUrl
+        model =
+            initialModel flags.serverUrl
     in
-    ( model, Cmd.none)
+    ( model, Cmd.none )
+
 
 
 -- UPDATE
@@ -38,23 +40,29 @@ update msg model =
             ( model, Cmd.none )
 
 
+
 -- VIEW
 
 
 view : Model -> Html Msg
 view model =
-  div [ id "to-do-lists"]
-      [ input [ class "new-task"
-              , placeholder "Add a task..."
-              , autofocus True
-              ]
-              []
-      ]
-    -- MAIN
+    div [ id "to-do-lists" ]
+        [ input
+            [ class "new-task"
+            , placeholder "Add a task..."
+            , autofocus True
+            ]
+            []
+        ]
+
+
+
+-- MAIN
 
 
 type alias Flags =
     { serverUrl : String }
+
 
 main : Program Flags Model Msg
 main =
@@ -62,5 +70,5 @@ main =
         { init = init
         , view = view
         , update = update
-        , subscriptions = (\_ -> Sub.none )
+        , subscriptions = \_ -> Sub.none
         }

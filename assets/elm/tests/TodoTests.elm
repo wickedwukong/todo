@@ -2,34 +2,38 @@ module TodoTests exposing (..)
 
 import Expect exposing (Expectation)
 import Fuzz exposing (Fuzzer, int, list, string)
+import Html.Attributes as Attr
 import Test exposing (..)
 import Test.Html.Query as Query
-import Test.Html.Selector exposing (text, tag, class, attribute)
-import Html.Attributes as Attr
-
-import Todo exposing(..)
+import Test.Html.Selector exposing (attribute, class, tag, text)
+import Todo exposing (..)
 
 
 suite : Test
 suite =
     describe "Todo module"
-        [ describe "Todo.view" -- Nest as many descriptions as you like.
+        [ describe "Todo.view"
+            -- Nest as many descriptions as you like.
             [ test "start with no todo lists" <|
                 \_ ->
-                  let
-                    emptyToDoLists = {serverUrl = "a server url"}
-                    all = [ attribute <| Attr.placeholder "Add a task..."
-                          , class "new-task"
-                          , attribute <| Attr.autofocus True]
-                  in
-                   emptyToDoLists
-                     |> Todo.view
-                     |> Query.fromHtml
-                     |> Query.find [ tag "input"]
-                     |> Query.has all
+                    let
+                        initialModel =
+                            { serverUrl = "a server url" }
+
+                        all =
+                            [ attribute <| Attr.placeholder "Add a task..."
+                            , class "new-task"
+                            , attribute <| Attr.autofocus True
+                            ]
+                    in
+                    initialModel
+                        |> Todo.view
+                        |> Query.fromHtml
+                        |> Query.find [ tag "input" ]
+                        |> Query.has all
 
             -- Expect.equal is designed to be used in pipeline style, like this.
-            , test "reverses a known string" <|
+            , test " a known string" <|
                 \_ ->
                     "ABCDEFG"
                         |> String.reverse
