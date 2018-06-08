@@ -4,6 +4,7 @@
 /deps
 /*.ez
 /assets/elm-stuff
+/assets/js/todo.js
 **/*/*.log
 
 # Generated on crash by the VM

@@ -55,7 +55,7 @@ update msg model =
             ( { model | todos = { content = model.newTodoContent } :: model.todos, clearNewTodo = True, newTodoContent = "" }, Cmd.none )
 
         Input newInput ->
-            ( { model | newTodoContent = newInput }, Cmd.none )
+            ( { model | newTodoContent = newInput, clearNewTodo = False }, Cmd.none )
 
 
 
