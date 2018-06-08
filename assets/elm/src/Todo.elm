@@ -43,11 +43,13 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div [ id "content" ]
-        [ text "hello world again!"
-        ]
-
--- MAIN
+  div [ id "to-do-lists"]
+      [ input [ class "new-task"
+              , autofocus True
+              ]
+              []
+      ]
+    -- MAIN
 
 
 type alias Flags =
