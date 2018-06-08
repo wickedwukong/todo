@@ -6,6 +6,7 @@
     "watch": "brunch watch --stdin"
   },
   "dependencies": {
+    "cypress": "^3.0.1",
     "elm": "^0.18.0",
     "elm-test": "^0.18.12",
     "phoenix": "file:../deps/phoenix",
