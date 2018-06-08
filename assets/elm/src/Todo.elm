@@ -7,13 +7,19 @@ import Html.Attributes exposing (..)
 -- MODEL
 
 
+type alias Todo =
+    { content : String }
+
+
 type alias Model =
-    { serverUrl : String }
+    { serverUrl : String
+    , todos : List Todo
+    }
 
 
 initialModel : String -> Model
 initialModel serverUrl =
-    { serverUrl = serverUrl }
+    { serverUrl = serverUrl, todos = [] }
 
 
 init : Flags -> ( Model, Cmd Msg )
@@ -43,16 +49,26 @@ update msg model =
 
 -- VIEW
 
+viewTodo: Todo -> Html Msg
+viewTodo todo =
+  div [class "todo"]
+       [text todo.content]
+
+viewTodos: List Todo -> Html Msg
+viewTodos todos =
+  div [ class "todo-lists"]
+        (List.map viewTodo todos)
 
 view : Model -> Html Msg
 view model =
-    div [ id "to-do-lists" ]
+    div [ id "todo-app" ]
         [ input
             [ class "new-task"
             , placeholder "Add a task..."
             , autofocus True
             ]
             []
+        , viewTodos model.todos
         ]
 
 

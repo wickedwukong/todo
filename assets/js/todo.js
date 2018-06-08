@@ -12301,12 +12301,36 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 };
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
+var _user$project$Todo$viewTodo = function (todo) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('todo'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(todo.content),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Todo$viewTodos = function (todos) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('todo-lists'),
+			_1: {ctor: '[]'}
+		},
+		A2(_elm_lang$core$List$map, _user$project$Todo$viewTodo, todos));
+};
 var _user$project$Todo$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$id('to-do-lists'),
+			_0: _elm_lang$html$Html_Attributes$id('todo-app'),
 			_1: {ctor: '[]'}
 		},
 		{
@@ -12327,7 +12351,11 @@ var _user$project$Todo$view = function (model) {
 					}
 				},
 				{ctor: '[]'}),
-			_1: {ctor: '[]'}
+			_1: {
+				ctor: '::',
+				_0: _user$project$Todo$viewTodos(model.todos),
+				_1: {ctor: '[]'}
+			}
 		});
 };
 var _user$project$Todo$update = F2(
@@ -12336,7 +12364,10 @@ var _user$project$Todo$update = F2(
 		return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 	});
 var _user$project$Todo$initialModel = function (serverUrl) {
-	return {serverUrl: serverUrl};
+	return {
+		serverUrl: serverUrl,
+		todos: {ctor: '[]'}
+	};
 };
 var _user$project$Todo$init = function (flags) {
 	var model = _user$project$Todo$initialModel(flags.serverUrl);
@@ -12358,9 +12389,13 @@ var _user$project$Todo$main = _elm_lang$html$Html$programWithFlags(
 				{serverUrl: serverUrl});
 		},
 		A2(_elm_lang$core$Json_Decode$field, 'serverUrl', _elm_lang$core$Json_Decode$string)));
-var _user$project$Todo$Model = function (a) {
-	return {serverUrl: a};
+var _user$project$Todo$Todo = function (a) {
+	return {content: a};
 };
+var _user$project$Todo$Model = F2(
+	function (a, b) {
+		return {serverUrl: a, todos: b};
+	});
 var _user$project$Todo$Flags = function (a) {
 	return {serverUrl: a};
 };
