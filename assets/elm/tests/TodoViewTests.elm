@@ -1,4 +1,4 @@
-module TodoTests exposing (..)
+module TodoViewTests exposing (..)
 
 import Expect exposing (Expectation)
 import Fuzz exposing (Fuzzer, int, list, string)
@@ -9,8 +9,7 @@ import Test.Html.Selector exposing (attribute, class, tag, text)
 import Todo exposing (..)
 
 
-initialModel =
-    { serverUrl = "a server url", todos = [] }
+initialModel = Todo.initialModel "a server url"
 
 
 modelWithTodos =
@@ -19,6 +18,8 @@ modelWithTodos =
         [ { content = "1st to do" }
         , { content = "2nd to do" }
         ]
+    , newTodoContent = ""
+    , clearNewTodo = False
     }
 
 
@@ -42,7 +43,6 @@ suite =
                         |> Query.find [ tag "input" ]
                         |> Query.has all
 
-            -- Expect.equal is designed to be used in pipeline style, like this.
             , test "display a list of to dos" <|
                 \_ ->
                     modelWithTodos
