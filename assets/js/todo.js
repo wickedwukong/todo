@@ -12306,12 +12306,23 @@ var _user$project$Todo$view = function (model) {
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$id('content'),
+			_0: _elm_lang$html$Html_Attributes$id('to-do-lists'),
 			_1: {ctor: '[]'}
 		},
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html$text('hello world again!'),
+			_0: A2(
+				_elm_lang$html$Html$input,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('new-task'),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$autofocus(true),
+						_1: {ctor: '[]'}
+					}
+				},
+				{ctor: '[]'}),
 			_1: {ctor: '[]'}
 		});
 };
